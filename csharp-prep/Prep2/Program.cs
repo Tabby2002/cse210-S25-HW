@@ -10,7 +10,6 @@ class Program
         int x = int.Parse(valueFromUser);
         string letter = "";
         string pass = "";
-        string sign = "";
         if (x >= 93)
         {
             letter = "A";
