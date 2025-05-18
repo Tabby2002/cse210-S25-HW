@@ -37,6 +37,27 @@ public class Journal
         entries.Add(entry);
     }
 
+    public void FreeWrite()
+    {
+        Console.WriteLine("Enter the date (MM-DD-YYYY):");
+        string date = Console.ReadLine();
+
+        Console.WriteLine("Type 'Free Write': ");
+        string prompt = Console.ReadLine();
+
+        Console.WriteLine("Dear Me, ");
+        string response = Console.ReadLine();
+
+        Entry entry = new Entry();
+        entry.Date = date;
+        entry.Prompt = prompt;
+        entry.Response = response;
+
+        entries.Add(entry);
+    }
+
+
+
     // Displays entry when '2' is typed
     public void DisplayEntries()
     {

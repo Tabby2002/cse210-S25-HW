@@ -9,40 +9,43 @@ class Program
         Journal journal = new Journal();
         string choice = "";
 
-        while (choice != "5")
+        while (choice != "6")
         {
             Console.WriteLine("\nJournal Menu:");
-            Console.WriteLine("1. Write a new entry");
-            Console.WriteLine("2. Display the journal");
-            Console.WriteLine("3. Save the journal to a file");
-            Console.WriteLine("4. Load the journal from a file");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("1. Give a prompt");
+            Console.WriteLine("2. Free Write");
+            Console.WriteLine("3. Display the journal");
+            Console.WriteLine("4. Save the journal to a file");
+            Console.WriteLine("5. Load the journal from a file");
+            Console.WriteLine("6. Quit");
             Console.Write("Choose an option: ");
             choice = Console.ReadLine();
 
             if (choice == "1")
                 journal.WriteEntry();
             else if (choice == "2")
-                journal.DisplayEntries();
+                journal.FreeWrite();
             else if (choice == "3")
+                journal.DisplayEntries();
+            else if (choice == "4")
             {
                 Console.Write("Filename (example.txt): ");
                 string file = Console.ReadLine();
                 journal.SaveToFile(file);
             }
-            else if (choice == "4")
+            else if (choice == "5")
             {
                 Console.Write("Filename (same as saved): ");
                 string file = Console.ReadLine();
                 journal.LoadFromFile(file);
             }
-            else if (choice == "5")
+            else if (choice == "6")
             {
                 Console.Write("Goodbye.");
             }
             else
             {
-            Console.WriteLine("Invalid option. Please choose 1–5.");
+                Console.WriteLine("Invalid option. Please choose 1–5.");
             }
         }
     }
