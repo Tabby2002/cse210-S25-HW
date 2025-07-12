@@ -1,9 +1,7 @@
 using System;
+// Entry point of the application that creates a user, adds transactions, and displays a report.
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello FinalProject World!");
-    }
+    
 }
