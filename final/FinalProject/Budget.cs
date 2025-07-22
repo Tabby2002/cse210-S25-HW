@@ -2,8 +2,18 @@
 public class Budget
 {
     private decimal _monthlyLimit;
-    public decimal MonthlyLimit => _monthlyLimit;
+
     public Budget(decimal limit)
+    {
+        _monthlyLimit = limit;
+    }
+
+    public decimal GetMonthlyLimit()
+    {
+        return _monthlyLimit;
+    }
+
+    public void SetMonthlyLimit(decimal limit)
     {
         _monthlyLimit = limit;
     }

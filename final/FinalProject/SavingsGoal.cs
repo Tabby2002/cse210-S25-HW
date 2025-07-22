@@ -20,5 +20,8 @@ public class SavingsGoal
         return _currentSavings >= _goalAmount;
     }
 
-    public decimal Progress => (_currentSavings / _goalAmount) * 100;
+    public decimal GetProgress()
+    {
+        return (_currentSavings / _goalAmount) * 100;
+    }
 }

@@ -12,9 +12,20 @@ public abstract class Transaction
         _category = category;
     }
 
-    public decimal Amount => _amount;
-     
-    public DateTime Date => _date;
-    public string Category => _category;
+    public decimal GetAmount()
+    {
+        return _amount;
+    }
+
+    public DateTime GetDate()
+    {
+        return _date;
+    }
+
+    public string GetCategory()
+    {
+        return _category;
+    }
+
     public abstract string GetSummary();
 }

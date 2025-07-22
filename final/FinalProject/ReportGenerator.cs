@@ -3,12 +3,20 @@ public class ReportGenerator
 {
     public void GenerateMonthlyReport(UserProfile user)
     {
-        Console.WriteLine($"\n--- Monthly Report for {user.Name} ---");
+        Console.WriteLine($"\n--- Monthly Report for {user.GetName()} ---");
         Console.WriteLine($"Total Income: {user.TotalIncome():C}");
         Console.WriteLine($"Total Expenses: {user.TotalExpenses():C}");
-        Console.WriteLine(user.Budget.IsOverBudget(user.TotalExpenses()) 
-            ? "Warning: You are over budget!" 
-            : "You are within your budget.");
-        Console.WriteLine($"Savings Progress: {user.SavingsGoal.Progress:F2}%\n");
+
+        if (user.GetBudget().IsOverBudget(user.TotalExpenses()))
+        {
+            Console.WriteLine("Warning: You are over budget!");
+        }
+        else
+        {
+            Console.WriteLine("You are within your budget.");
+        }
+
+        Console.WriteLine($"Savings Progress: {user.GetSavingsGoal().GetProgress():F2}%\n");
     }
 }
+

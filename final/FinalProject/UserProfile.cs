@@ -1,57 +1,74 @@
 // Stores the user's name, transactions, budget, and savings goal.
 public class UserProfile
 {
-    private List<Transaction> transactions = new();
-    public List<Transaction> GetAllTransactions() => transactions;
+    private List<Transaction> _transactions = new();
     private string _name;
     private Budget _budget;
     private SavingsGoal _savingsGoal;
 
-    public string Name
+    public List<Transaction> GetAllTransactions()
     {
-        get { return _name; }
-        set { _name = value; }
-    }   
-    
-    public Budget Budget
-    {
-    get { return _budget; }
-    set { _budget = value; }
-    }
-    public SavingsGoal SavingsGoal
-    {
-    get { return _savingsGoal; }
-    set { _savingsGoal = value; }
+        return _transactions;
     }
 
     public void AddTransaction(Transaction t)
     {
-        transactions.Add(t);
+        _transactions.Add(t);
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+
+    public Budget GetBudget()
+    {
+        return _budget;
+    }
+
+    public void SetBudget(Budget budget)
+    {
+        _budget = budget;
+    }
+
+    public SavingsGoal GetSavingsGoal()
+    {
+        return _savingsGoal;
+    }
+
+    public void SetSavingsGoal(SavingsGoal savingsGoal)
+    {
+        _savingsGoal = savingsGoal;
     }
 
     public decimal TotalExpenses()
     {
-    decimal total = 0;
-    foreach (var transaction in transactions)
-    {
-        if (transaction is Expense expense)
+        decimal total = 0;
+        foreach (var transaction in _transactions)
         {
-            total += expense.Amount;
+            if (transaction is Expense expense)
+            {
+                total += expense.GetAmount();
+            }
         }
-    }
-    return total;
+        return total;
     }
 
     public decimal TotalIncome()
     {
-    decimal total = 0;
-    foreach (var transaction in transactions)
-    {
-        if (transaction is Income income)
+        decimal total = 0;
+        foreach (var transaction in _transactions)
         {
-            total += income.Amount;
+            if (transaction is Income income)
+            {
+                total += income.GetAmount();
+            }
         }
-    }
-    return total;
+        return total;
     }
 }
